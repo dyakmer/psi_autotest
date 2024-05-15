@@ -30,7 +30,7 @@ def analyze_page(url):
             EC.visibility_of_element_located((By.CSS_SELECTOR, 'g.lh-exp-gauge__inner text.lh-exp-gauge__percentage'))
         )
         result = result_element.text
-        print("Результат анализа для", url, ":", result)
+        print("Результат для mobile", url, ":", result)
 
         # Нажатие на таб
         tab_buttons = driver.find_elements(By.CSS_SELECTOR, 'span.VfPpkd-YVzG2b[jsname="ksKsZd"]')
@@ -44,7 +44,7 @@ def analyze_page(url):
         )
 
         new_result = new_result_element.text
-        print("Новый результат анализа для", url, ":", new_result)
+        print("Результат для desktop", url, ":", new_result)
     finally:
         # Независимо от результата, закрываем браузер
         driver.quit()
