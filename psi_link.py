@@ -1,4 +1,4 @@
-from page_analyzer import analyze_page
+from psi_windown import analyze_page
 
 # Запуск скрипта
 if __name__ == '__main__':
