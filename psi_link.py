@@ -1,5 +1,6 @@
 from page_analyzer import analyze_page
 
+# Запуск скрипта
 if __name__ == '__main__':
     urls = [
         "https://haieronline.ru/",
