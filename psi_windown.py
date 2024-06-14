@@ -6,8 +6,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, WebDriverException
 import time
+from datetime import datetime
+from google_sheets import update_google_sheet
 
-MAX_RETRIES = 3
+MAX_RETRIES = 2
 WAIT_TIME_BETWEEN_RETRIES = 2
 
 def create_driver():
@@ -36,7 +38,7 @@ def find_element_with_retries(driver, by, value, retries=MAX_RETRIES, timeout=10
             time.sleep(WAIT_TIME_BETWEEN_RETRIES)
     return None
 
-def analyze_page(url):
+def analyze_page(url, description):
     for attempt in range(MAX_RETRIES):
         driver = create_driver()
         try:
@@ -78,6 +80,12 @@ def analyze_page(url):
 
             desktop_result = new_result_element.text
             print("Результат анализа desktop", url, ":", desktop_result)
+
+            # Получение текущего времени
+            analysis_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+            # Обновление данных в Google Sheets с URL, описанием и временем анализа
+            update_google_sheet(mobile_result, desktop_result, url, analysis_time, description)
 
             return mobile_result, desktop_result
 
