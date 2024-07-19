@@ -15,7 +15,7 @@ end_time = start_time + timedelta(hours=24)
 job()
 
 # Планирование задачи каждые 20 минут
-schedule.every(5).minutes.do(job)
+schedule.every(20).minutes.do(job)
 
 # Запуск цикла планировщика
 while datetime.now() < end_time:

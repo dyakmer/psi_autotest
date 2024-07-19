@@ -4,7 +4,7 @@ from google_sheets import update_google_sheet
 # Запуск скрипта
 if __name__ == '__main__':
     urls = [
-        "https://haieronline.ru/", #Главная
+        "https://haieronline.ru/main/", #Главная
         "https://haieronline.ru/offers/super-discount/", #Супер акция
         "https://haieronline.ru/catalog/appliances/fridges/", #Каталог холодильников
         "https://haieronline.ru/catalog/appliances/fridges/kholodilnik-haier-cef535awd/" #Деталка холодильника
